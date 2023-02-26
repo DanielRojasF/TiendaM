@@ -6,17 +6,22 @@
         <meta name="description" content="pagina de la leccion2"/>
         <meta name="keywords" content="html5, css, web, fidelitas"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header id="encabezado">
-            <h1>Tienda en linea</h1>
-            <br>
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="logo nav-link">Techshop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="index.html">&LeftTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="ejemplo3.html">&RightTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="audios.html">Audios</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="videos.html">Videos</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="iframes.html">iFrames</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="formularios.html">Formularios</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav id="menu">
-            <a href="ejemplo9.html">Atras</a>
-            <a href="index.html">HOME</a>
-            <a href="ejemplo2.html">Adelante</a>
-        </nav>
         <aside id="barraLateral">
             <h2>Producto mas vendidos</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit nec, malesuada nam porttitor sagittis vehicula diam dictum dignissim lacus, netus imperdiet quis primis magnis eros facilisi. Orci tempus maecenas quam purus netus molestie, senectus blandit est mattis dis faucibus, lacinia class sollicitudin vitae praesent. Proin iaculis pellentesque tristique tincidunt dictum eros platea nam a, purus lacinia commodo curae sagittis semper nunc posuere morbi velit, integer gravida id interdum maecenas luctus phasellus curabitur.</p>
@@ -51,7 +56,7 @@
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </article>
         </section>
