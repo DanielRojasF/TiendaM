@@ -6,16 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <!--<div>Saludos desde MVC</div>
-        <p th:text="${Mensaje}"></p>
-        <br/>
-        <br/>
-        <p>Nombre: <span th:text="${objetoCliente.nombre}"></span></p>
-        <p>Apellidos: <span th:text="${objetoCliente.apellidos}"></span></p>
-        <p>Correo: <span th:text="${objetoCliente.correo}"></span></p>
-        <p>Telefono: <span th:text="${objetoCliente.telefono}"></span></p> -->
-
-        <h1>Lista de clientes</h1> 
+        <h1>Lista de clientes</h1>
+        <a th:href="@{/nuevoCliente}">Nuevo cliente</a>
+        <br />
+        <br />
         <div th:if="${clientes != null and !clientes.empty}">
             <table border="1">
                 <thead>
@@ -23,6 +17,7 @@
                     <th>Apellidos</th>
                     <th>Correo</th>
                     <th>Telefono</th>
+                    <th colspan="2">Acciones</th>
                 </thead>
                 <tbody>
                     <tr th:each="item : ${clientes}">
@@ -30,6 +25,8 @@
                         <td th:text="${item.apellidos}"></td>
                         <td th:text="${item.correo}"></td>
                         <td th:text="${item.telefono}"></td>
+                        <td><a th:href="@{/modificarCliente/} + ${item.idCliente}">Modificar</a></td>
+                        <td><a th:href="@{/eliminarCliente/} + ${item.idCliente}">Eliminar</a></td>
                     </tr>                    
                 </tbody>
             </table>
