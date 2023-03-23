@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Datos del cliente</h1>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Datos del cliente</h2>
         <a th:href="@{/}">Regresar</a>
         <br/>
         <br/>
@@ -28,5 +29,6 @@
             
             <input type="submit" name="guardar" value="Guardar"/>
         </form>
+        <footer th:replace="layout/plantilla :: header"/>
     </body>
 </html>
