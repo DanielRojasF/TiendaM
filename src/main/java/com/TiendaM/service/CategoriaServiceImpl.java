@@ -16,11 +16,12 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Override
     @Transactional (readOnly = true)
     public List<Categoria> getCategorias(boolean activos) {
-        List<Categoria> lista = (List<Categoria>) categoriaDao.findAll();// en esta lista tenemos 4 elementos activos y uno inactivo
+        List<Categoria> lista = (List<Categoria>) categoriaDao.findAll();// en esta lista tenemos 4 elementos 3 activos y uno inactivo
         
         if(activos){
             lista.removeIf(e -> !e.isActivo());
         }
+        return lista;
     }
 
     @Override
@@ -38,4 +39,5 @@ public class CategoriaServiceImpl implements CategoriaService {
     public void delete(Categoria categoria) {
         categoriaDao.deleteById(categoria.getIdCategoria());
     }
+    
 }

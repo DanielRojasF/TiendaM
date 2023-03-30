@@ -1,7 +1,9 @@
 package com.TiendaM.service;
 
 import com.TiendaM.dao.ClienteDao;
+import com.TiendaM.dao.CreditoDao;
 import com.TiendaM.domain.Cliente;
+import com.TiendaM.domain.Credito;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClienteServiceImpl implements ClienteService{
+    
     @Autowired
     ClienteDao clienteDao;
+    
+    @Autowired
+    CreditoDao creditoDao;
 
     @Override
     @Transactional (readOnly = true)
@@ -25,11 +31,17 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public void save(Cliente cliente) {
+    @Transactional
+    public void save(Cliente cliente) {//metodo save sirve tanto para insertar como para modificar
+        Credito credito = cliente.getCredito();
+        credito = creditoDao.save(credito);
+        
+        cliente.setCredito(credito);
         clienteDao.save(cliente);
     }
 
     @Override
+    @Transactional
     public void delete(Cliente cliente) {
         clienteDao.deleteById(cliente.getIdCliente());
     }
