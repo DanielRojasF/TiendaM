@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
@@ -15,12 +15,13 @@
                         <tr>
                             <th>Descripcion</th>
                             <th>Precio</th>
+                            <th>Comprar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="articulo : ${articulos}">
                             <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
+                            <td th:text="${articulo.precio}"></td>
                             <td><a th:href="@{/carrito/agregar/} + ${articulo.idArticulo}">Agregar</a></td>
                         </tr>                    
                     </tbody>

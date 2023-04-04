@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
@@ -7,16 +8,16 @@
     <body>
         <header th:fragment="header" class="header">
             <nav class="nav">
-                <a th:ref="@{/}" class="logo nav-link">TechShop</a>
+                <a th:href="@{/}" class="logo nav-link">TechShop</a>
                 <ul class="nav-menu">
                     <li class="nav-menu-item">
-                        <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link" >Clientes</a>
+                        <a class="nav-menu-link nav-link" th:href="@{/cliente/listado}">Clientes</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href="@{/categoria/listado}" class="nav-menu-link nav-link" ">Categoria</a>
+                        <a class="nav-menu-link nav-link" th:href="@{/categoria/listado}">Categoria</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a th:href="@{/articulo/listado}" class="nav-menu-link nav-link" >Articulos</a>
+                        <a class="nav-menu-link nav-link" th:href="@{/articulo/listado}" >Articulos</a>
                     </li>
                 </ul>
             </nav>

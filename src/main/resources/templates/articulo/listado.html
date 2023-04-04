@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
@@ -24,15 +24,15 @@
                         <tr th:each="articulo : ${articulos}">
                             <td th:text="${articulo.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
-                            <td th:text="${articulo.existencias}" style="text-align: right"></td>
-                            <td><input type="checkbox" name="activa" th:checked="${articulo.activo}" disabled="true"></td>
+                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
+                            <td><input type="checkbox" name="activo" th:checked="${articulo.activo}" disabled="true"></td>
                             <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}">Elimnar</a></td>
                             <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}">Modificar</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div th:if="${articulos = null or articulos.empty}">
+            <div th:if="${articulos == null or articulos.empty}">
                 No tenemos Articulos que mostrar
             </div>
             <footer th:replace="layout/plantilla :: footer">

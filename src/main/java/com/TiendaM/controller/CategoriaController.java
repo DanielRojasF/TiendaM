@@ -26,7 +26,7 @@ public class CategoriaController {
     
     @GetMapping("/categoria/nueva")
     public String nuevoCategoria(Categoria categoria){
-        return "/categoria/modificar";
+        return "/categoria/modifica";
     }
     
     @PostMapping("/categoria/guardar")
@@ -39,7 +39,7 @@ public class CategoriaController {
     public String modificarCategoria(Categoria categoria, Model model){
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
-        return "/categoria/modificar";
+        return "/categoria/modifica";
     }
     
     @GetMapping("/categoria/eliminar/{idCategoria}")

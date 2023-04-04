@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
-    
     @Autowired
     private CategoriaDao categoriaDao;
 
@@ -16,9 +15,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public List<Categoria> getCategorias(boolean activos) {
         var lista = (List<Categoria>)categoriaDao.findAll();// en esta lista tenemos 4 elementos 3 activos y uno inactivo
         
-        if(activos){
-            lista.removeIf(e -> !e.isActivo());
-        }
+        if(activos){lista.removeIf(e -> !e.isActivo());}
         return lista;
     }
 

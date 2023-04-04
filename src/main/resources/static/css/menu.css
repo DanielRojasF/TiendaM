@@ -61,17 +61,6 @@ body {
     background: cyan;
     transition: 0.7s;
 }
-
-.contenido{
-    background-color: lavender;
-    position: fixed;
-    top: 80px;
-    bottom: 20px;
-    left:0;
-    width: 100%;
-    overflow: auto;
-}
-
 .footer{
     background-color: black;
     text-align: center;
@@ -82,3 +71,13 @@ body {
     left: 0;
     width: 100%;
 }
+
+.contenido{
+    background-color: lavender;
+    top: 80px;
+    bottom: 20px;
+    position: fixed;
+    width: 100%;
+    overflow: auto;
+}
+

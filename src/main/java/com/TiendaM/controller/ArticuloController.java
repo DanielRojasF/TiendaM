@@ -2,7 +2,6 @@ package com.TiendaM.controller;
 
 import com.TiendaM.domain.Articulo;
 import com.TiendaM.service.ArticuloService;
-import com.TiendaM.service.CategoriaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 public class ArticuloController { 
+    
     @Autowired
     private ArticuloService articuloService;
-    @Autowired
-    private CategoriaService categoriaService;
     
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {
@@ -26,10 +24,8 @@ public class ArticuloController {
     }
     
     @GetMapping("/articulo/nuevo")
-    public String nuevoArticulo(Articulo articulo, Model model){
-        var categorias = categoriaService.getCategorias(true);
-        model.addAttribute("categorias", categorias);
-        return "/articulo/modificar";
+    public String nuevoArticulo(Articulo articulo){
+        return "/articulo/modifica";
     }
     
     @PostMapping("/articulo/guardar")
@@ -41,10 +37,8 @@ public class ArticuloController {
     @GetMapping("/articulo/modificar/{idArticulo}")
     public String modificarArticulo(Articulo articulo, Model model){
         articulo = articuloService.getArticulo(articulo);
-        var categorias = categoriaService.getCategorias(true);
-        model.addAttribute("categorias", categorias);
         model.addAttribute("articulo", articulo);
-        return "/articulo/modificar";
+        return "/articulo/modifica";
     }
     
     @GetMapping("eliminarArticulo/{idArticulo}")

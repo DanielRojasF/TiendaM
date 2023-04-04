@@ -20,12 +20,12 @@ public class Credito implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_credito")
     private Long idCredito;//Hibernate lo transforma en id_credito
-    private double limite;
+    private Long limite;
 
     public Credito() {
     }
 
-    public Credito(double limite) {
+    public Credito(Long limite) {
         this.limite = limite;
     }   
 }

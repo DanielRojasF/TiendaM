@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
@@ -9,7 +9,7 @@
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
             <h2>Listado de Categorias</h2>
-            <a th:href="@{/categoria/nuevo}">Nuevo categoria</a>
+            <a th:href="@{/categoria/nuevo}">Nueva categoria</a>
             <div th:if="${categorias != null and !categorias.empty}">
                 <table border="1">
                     <thead>
