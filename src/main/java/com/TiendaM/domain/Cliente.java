@@ -1,5 +1,6 @@
 package com.TiendaM.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,14 +14,14 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="cliente")
-public class Cliente implements Serializable{
-    
+public class Cliente implements Serializable{ 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")//esta linea esta en la presentacion pero no la hicimos en clase
     private Long idCliente;//Hibernate lo transforma en id_cliente
-    private String nombre;//nombre
+    private String nombre;
     private String apellidos;
     private String correo;
     private String telefono;
@@ -30,6 +31,13 @@ public class Cliente implements Serializable{
     private Credito credito;
     
     public Cliente() {
+    }
+
+    public Cliente(String nombre, String apellidos, String correo, String telefono) {//este metodo constructor esta en la presentacion pero no lo hicimos en clase
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
     }
 
     public Cliente(String nombre, String apellidos, String correo, String telefono, Credito credito) {

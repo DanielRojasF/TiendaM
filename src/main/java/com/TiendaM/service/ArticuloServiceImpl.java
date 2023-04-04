@@ -11,12 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ArticuloServiceImpl implements ArticuloService {
     
     @Autowired
-    ArticuloDao articuloDao;
+    private ArticuloDao articuloDao;
 
     @Override
-    @Transactional (readOnly = true)
     public List<Articulo> getArticulos(boolean activos) {
-        List<Articulo> lista = (List<Articulo>) articuloDao.findAll();// en esta lista tenemos 4 elementos 3 activos y uno inactivo
+        var lista = (List<Articulo>)articuloDao.findAll();// en esta lista tenemos 4 elementos 3 activos y uno inactivo
         
         if(activos){
             lista.removeIf(e -> !e.isActivo());
@@ -25,7 +24,6 @@ public class ArticuloServiceImpl implements ArticuloService {
     }
 
     @Override
-    @Transactional (readOnly = true)
     public Articulo getArticulo(Articulo articulo) {
        return articuloDao.findById(articulo.getIdArticulo()).orElse(null);
     }

@@ -13,6 +13,7 @@ import lombok.Data;
 @Entity
 @Table(name="credito")
 public class Credito implements Serializable{
+    
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -26,7 +27,5 @@ public class Credito implements Serializable{
 
     public Credito(double limite) {
         this.limite = limite;
-    }
-    
-    
+    }   
 }
