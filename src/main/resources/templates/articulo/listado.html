@@ -1,45 +1,16 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            <h2 th:text="#{articulo.titulo}">Listado de Articulos</h2>
-            <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo Articulo</a>
-            <div th:if="${articulos != null and !articulos.empty}">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th th:text="#{articulo.descripcion}">Descripcion</th>
-                            <th th:text="#{articulo.precio}">Precio</th>
-                            <th th:text="#{articulo.existencias}">Existencias</th>
-                            <th th:text="#{articulo.activo}">Activa</th>
-                            <th th:text="#{accion.eliminar}">Eliminar</th>
-                            <th th:text="#{accion.actualizar}">Actualizar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
-                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
-                            <td><input type="checkbox" name="activo" th:checked="${articulo.activo}" disabled="true"></td>
-                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}" 
-                                   th:text="#{accion.eliminar}">Elimnar</a></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}" 
-                                   th:text="#{accion.actualizar}">Modificar</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div th:if="${articulos == null or articulos.empty}" th:text="#{articulo.no_mostrar}">
-                No tenemos Articulos que mostrar
-            </div>
-            <footer th:replace="layout/plantilla :: footer">
-        </div>
+
+        <header th:replace="layout/plantilla :: header" />
+
+        <section th:replace="articulo/fragmentosArticulo :: botonesAgregar"/>
+        <section th:replace="articulo/fragmentosArticulo :: agregarArticulo"/>
+        <section th:replace="articulo/fragmentosArticulo :: listadoArticulos"/>
+
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>
