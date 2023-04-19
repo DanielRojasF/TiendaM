@@ -139,9 +139,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <div class="form-group">
                                     <label for="activo" th:text="#{articulo.activo}">Activo</label>
                                     <input  type="checkbox"   class="form-check-input" name="activo" >  
-
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="rutaImagen" th:text="#{articulo.rutaImagen}">Ruta Imagen</label>
+                                    <input  type="text"   class="form-control" name="rutaImagen" >  
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
@@ -194,6 +196,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <div class="form-group">
                                             <label for="activo" th:text="#{articulo.activo}">Activo </label>
                                             <input type="checkbox"   class="form-check-input" name="activo" th:field="*{activo}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="detalle" th:text="#{articulo.detalle}">Detalle </label>
+                                            <input type="text" class="form-control" name="detalle" th:field="*{detalle}"/>
                                         </div>
                                     </div>                    
                                 </div>

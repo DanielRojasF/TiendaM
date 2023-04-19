@@ -19,7 +19,6 @@ public class Cliente implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")//esta linea esta en la presentacion pero no la hicimos en clase
     private Long idCliente;//Hibernate lo transforma en id_cliente
     private String nombre;
     private String apellidos;

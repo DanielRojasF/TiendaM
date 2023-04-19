@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -10,7 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
@@ -25,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
-        
+
         <section th:fragment="listadoClientes" id="clientes">
             <div class="container">
                 <div class="row">
@@ -71,7 +68,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             </div>
                         </div>
                     </div>
-                       <div class="col-md-3">
+                    <div class="col-md-3">
                         <div class="card text-center bg-danger text-white mb-3">
                             <div class="card-body">
                                 <h3 th:text="#{cliente.limiteTotal}">Límite Total</h3>
@@ -99,7 +96,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <div class="modal-content">
                         <div class="modal-header bg-info text-white">
                             <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Cliente</h5>
-                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
                         <form th:action="@{/cliente/guardar}" th:object="${cliente}"
                               method="POST" class="was-validated">
@@ -133,6 +130,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
+
+
         <section th:fragment="editarCliente">            
             <form method="POST"
                   th:action="@{/cliente/guardar}"
@@ -177,7 +176,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </form>
         </section>
-                <section th:fragment="botonesEditar">
+                
+                
+        <section th:fragment="botonesEditar">
             <div id="actions" class="py-4 mb-4 bg-light">
                 <div class="container">
                     <div class="row">
@@ -201,6 +202,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
-
     </body>
 </html>
