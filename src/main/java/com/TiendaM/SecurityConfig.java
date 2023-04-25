@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
     
-     @Autowired
+    @Autowired
     private UserDetailsService userDetailsService;
  
     @Autowired
@@ -39,12 +39,12 @@ public class SecurityConfig {
 //                .build();
 //        UserDetails user = User.builder()
 //                .username("user")
-//                .password("{noop}123")     
-//                .roles("USER") 
+//                .password("{noop}123")
+//                .roles("USER")
 //                .build();
 //        return new InMemoryUserDetailsManager(user, sales, admin);
 //    }
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception {
@@ -75,6 +75,11 @@ public class SecurityConfig {
                         "/categoria/listado",
                         "/cliente/listado")
                 .hasAnyRole("ADMIN", "VENDEDOR")
+                .requestMatchers(
+                        "/carrito/agregar/**",
+                        "/carrito/listado",
+                        "/carrito/eliminar/**")
+                .hasRole("USER")
                 )
                 .formLogin((form) -> form
                 .loginPage("/login")
@@ -84,5 +89,4 @@ public class SecurityConfig {
                 .accessDeniedPage("/errores/403");
         return http.build();
     }
-    
 }
